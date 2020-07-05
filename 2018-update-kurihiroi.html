@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="style.css" rel="stylesheet">
+<title>公開: くりひろいゲーム0.3.0 - かなへびJS</title>
+
+<div class="banner bread">
+<ul>
+<li><a class="logo" href="./index.html">かなへびJS</a></li
+><li><a>Weblog</a></li>
+</ul>
+</div>
+
+<div class="main">
+
+<h1>公開: くりひろいゲーム0.3.0</h1>
+<p><small>2018年05月06日</small></p>
+
+<p><img src="images/2018-5-6-0.png" alt="[クリをかつぎジャンプするカニ]"></p>
+<p>くりひろいゲームのVersion 0.3.0を公開しました。</p>
+<p>クリを拾っても得点が増えるだけで、物足りないような気がしたので、カニがジャンプするようにしました。
+少し漫画らしい演出になったと思います。</p>
+<p>せっかくなのでキーボード操作にも対応しました。
+ゲーム画面をクリックするとキーボード操作がオンとなり、他をクリックするとオフになるようにしました。
+</p>
+
+<p>機能を追加する前に、無駄なコードを削除したり、空白を減らしました。
+それによって、前のバージョンとあまりプログラムサイズが変わっていません。</p>
+
+<h2>問題点</h2>
+<ul>
+<li>ルール説明をゲーム画面内に表示するべきかもしれません。</li>
+<li>(技術的)モジュール間のデータの受渡しに無駄があります。
+例えばcanvasのContext2Dや、カーソル状態、キーボード状態を引数でバケツリレーのように渡しています。
+</li>
+<li>(技術的)キャラクターの状態・ふるまい・見た目が結合しています。</li>
+</ul>
+
+<p>次にゲームを作る時は上に挙げたような問題の解決策を考えます。</p>
+
+<h2>リンク</h2>
+<ul>
+<li><a href="kurihiroi/index.html">くりひろいゲーム オンライン版</a></li>
+<li><a href="download.html">ゲームのダウンロード</a></li>
+</ul>
+
+
+</div>
+
+<div class="contentinfo">
+<p><a class="a-back" href="index.html">ホームページ</a></p>
+<p><small>このページは<a
+    href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.ja"
+>CC0 1.0</a>の下で利用できます。
+</small></p>
+</div>
+

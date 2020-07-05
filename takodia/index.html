@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<link href="../style.css" rel="stylesheet">
+<link href="takodia.css" rel="stylesheet">
+<link rel="icon" href="../images/takodia-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>たこダイヤ - かなへびJS</title>
+</head>
+
+<div class="banner bread">
+<ul>
+<li><a class="logo" href="../index.html">かなへびJS</a></li
+><li><a>たこダイヤ</a></li>
+</ul>
+</div>
+
+<div class="main">
+
+<div class="takodia-box">
+<div id="takodia-nojs">
+<p>HTML5 canvas対応ブラウザでJavaScriptを有効にするとゲームで遊ぶことができます。</p>
+</div>
+<div style="display:none">
+<img alt="[タイトル]" id="takodia-titleimg" src="title.png">
+<img alt="[スプライト]" id="takodia-spriteimg" src="sprite.png">
+<img alt="[背景]" id="takodia-backgroundimg" src="background.png">
+<img alt="[フレーム]" id="takodia-frameimg" src="frame.png">
+</div>
+<div class="takodia-panel">
+<button id="takodia-reset" type="button">リセット</button>
+</div>
+<div>
+<canvas id="takodia-canvas"></canvas>
+</div>
+</div>
+
+<p>あなたはタコです。クリックで動きます。宝石を集めてツボに入りましょう。ツボに入ると集めた宝石が得点になります。泳いでいるウツボに食べられるとゲーム終了です。</p>
+<p>ウツボは、だんだん腹を空かせます。スコアが高くなるにつれて、しつこく追いかけてきます。</p>
+<p>スコアが高くなるとヘルメットが現れます。ヘルメットを拾うと、ツボに入るまでの間、1度だけウツボから身を守ることができます。</p>
+</div>
+
+<div class="contentinfo">
+<p><a class="a-back" href="../index.html">ホームページ</a></p>
+</div>
+
+<script type="text/javascript" src="takodia.js"></script>
+
+</html>

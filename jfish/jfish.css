@@ -1,0 +1,39 @@
+.jfish-box {
+margin: 0.5em auto;
+max-width: 320px;
+width: 100%;
+}
+
+.jfish-box canvas {
+display: block;
+max-width: 100%;
+}
+
+.jfish-panel {
+margin-bottom: 0.25em;
+}
+
+.jfish-panel button {
+background: #eeeeee;
+border: 1px solid #111111;
+border-radius: 0;
+color: #111111;
+font-family: inherit;
+font-size: smaller;
+line-height: inherit;
+margin-bottom: 0;
+padding: 0.5em 1em;
+}
+
+.jfish-panel button:active {
+background: #dddddd;
+}
+
+.jfish-panel label {
+font-size: smaller;
+margin-left: 1em;
+}
+
+.jfish-panel label [type="checkbox"] {
+vertical-align: middle;
+}

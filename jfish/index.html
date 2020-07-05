@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<link href="../style.css" rel="stylesheet">
+<link href="jfish.css" rel="stylesheet">
+<link rel="icon" href="../images/jfish-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>魚すくいゲーム - かなへびJS</title>
+</head>
+
+<div class="banner bread">
+<ul>
+<li><a class="logo" href="../index.html">かなへびJS</a></li
+><li>魚すくいゲーム</li>
+</ul>
+</div>
+
+<div class="main">
+
+<div class="jfish-box">
+<div class="jfish-panel">
+<button id="btn-reset">リセット</button><label><input id="chk-sound" type="checkbox">サウンド</label><label><input id="chk-vibrate" type="checkbox">振動</label></div>
+<div>
+<canvas id="jfish-display" width="320" height="320">
+<p>ここには『魚すくいゲーム』のゲーム画面が表示されます。
+canvas 対応ブラウザで JavaScript を有効にするとゲームで遊べます。</p>
+</canvas>
+</div>
+</div>
+
+<p>ドラッグでポイを動かし、ボタンを離して魚を取ると得点になります。魚を取るたびにポイが傷つき、やがて破れます。右下の残りポイが無い時に破れるとゲームオーバーです。</p>
+<p>大きな魚と素早い魚は高得点です。同時に複数の魚を取るとさらに点が増えます。魚の尾びれがポイに入ると早く破れてしまいます。</p>
+<p>得点が500、1000、2000に達すると残りポイが1枚だけ増えます。</p>
+</div>
+
+<div class="contentinfo">
+<p><a class="a-back" href="../index.html">ホームページ</a></p>
+</div>
+
+<script type="text/javascript" src="jfish.js"></script>
+
+</html>

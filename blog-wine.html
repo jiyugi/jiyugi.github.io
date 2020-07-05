@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="style.css" rel="stylesheet">
+<title>Debian 系OS でWine をインストール - かなへびJS</title>
+</head>
+<body>
+
+<header>
+<div class="banner bread">
+<ul>
+<li><a class="logo" href="./index.html">かなへびJS</a></li
+><li><a>Weblog</a></li>
+</ul>
+</div>
+</header>
+
+<main>
+<div class="main">
+<h1>Debian系OSでWineをインストール</h1>
+<p><small>2018年3月3日作成, 2019年7月7日更新</small></p>
+
+<h2>結論</h2>
+<p>以下のコマンドで、64bit版DebianやUbuntuにWineをインストールできます。</p>
+<pre>sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install wine</pre>
+
+<h2>いきさつ</h2>
+<p>Debian系のOSにWineをインストールするために「<code>apt install wine</code>」と入力した時、以下のようなエラーが出て失敗しました。</p>
+<pre><code>E: 問題を解決することができません。壊れた変更禁止パッケージがあります。
+</code></pre>
+<p>原因を調べたところ、「<code>wine-1.6-i386</code>」という依存パッケージのインストールに失敗している事がわかりました。そしてDebian WikiのWineのページにたどりつきました。</p>
+
+<blockquote lang="en">
+<p>E.g. for amd64 (which most users have) you need i386.
+Enable it with the following command:</p>
+<pre>sudo dpkg --add-architecture i386 &amp;&amp; sudo apt update</pre>
+</blockquote>
+<p class="quotesource">--『<a
+href="https://wiki.debian.org/Wine#Step_1:_Enable_multiarch"
+>Wine - Debian Wiki</a>』より</p>
+
+<p>dpkgに、32bit版のパッケージをインストールする設定が必要だったようです。これで「<code>wine1.6-i386</code>」をインストールでき、Wine自体のインストールもできました。</p>
+
+</div>
+</main>
+
+<footer>
+<div class="contentinfo">
+<p><a class="a-back" href="index.html">ホームページ</a></p>
+<p><small>このページ(引用除く)は<a
+href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.ja"
+>CC0 1.0</a>の下で利用できます。</small></p>
+</div>
+</footer>
+
+</body>
+</html>

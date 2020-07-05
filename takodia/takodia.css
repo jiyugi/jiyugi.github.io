@@ -1,0 +1,30 @@
+.takodia-box {
+margin: 0.5em auto;
+max-width: 384px;
+width: 100%;
+}
+
+.takodia-box canvas {
+display: block;
+max-width: 100%;
+}
+
+.takodia-panel {
+margin-bottom: 0.25em;
+}
+
+.takodia-panel button {
+background: #eeeeee;
+border: 1px solid #111111;
+border-radius: 0;
+color: #111111;
+font-family: inherit;
+font-size: smaller;
+line-height: inherit;
+margin-bottom: 0;
+padding: 0.5em 1em;
+}
+
+.takodia-panel button:active {
+background: #dddddd;
+}

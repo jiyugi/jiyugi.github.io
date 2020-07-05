@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="style.css" rel="stylesheet">
+<title>CUIで日本語名を扱う自作コマンド - かなへびJS</title>
+
+<div class="banner bread">
+<ul>
+<li><a class="logo" href="./index.html">かなへびJS</a></li
+><li><a>Weblog</a></li>
+</ul>
+</div>
+
+<div class="main">
+
+<h1>CUIで日本語名を扱う自作コマンド</h1>
+<p><small>2018年10月06日</small></p>
+
+<p>私は、ファイルの管理をCUIで行う事が多いです。そこで困るのが、日本語のファイル名です。例えば、次のようなディレクトリで、ファイルを移動したり、カレントディレクトリを変えるには、日本語入力のオン/オフが必要です。</p>
+
+<pre>$ ls -p
+ばら.jpg  ひまわり.jpg  チューリップ.jpg  古い写真/
+$ cd 古いの写真</pre>
+
+<p>このような操作は、GUIで行うのが一番ですが、あえてCUIでうまくやるためのコマンドを思いついたので、勉強も兼ねて実装してみました。それが「fl(File List)」コマンドです。このコマンドは、bash、dash、kshで動作を確認しています。</p>
+
+<p>「<code>fl</code>」と入力することで、カレントディレクトリ上のファイル名を数字付きリストにします。</p>
+
+<pre>$ fl
+1:ばら.jpg              3:チューリップ.jpg
+2:ひまわり.jpg          4:古い写真/</pre>
+
+<p>「<code>fl <var>1</var></code>」などと入力する事で、数字に対応したファイル名が表示されます。</p>
+
+<pre>$ fl 1
+ばら.jpg
+$ fl 4
+古い写真</pre>
+
+<p>flコマンドを使って、「チューリップ.jpg」を「古い写真」に移動する例を示します。日本語ファイル名を入力することなく、日本語ファイル名を扱っています。</p>
+
+<pre>$ fl
+1:ばら.jpg              3:チューリップ.jpg
+2:ひまわり.jpg          4:古い写真/
+$ mv `fl 3` `fl 4`
+$ fl
+1:ばら.jpg      2:ひまわり.jpg  3:古い写真/
+$ cd `fl 3`
+$ ls
+チューリップ.jpg</pre>
+
+<h2>flコマンドのソース</h2>
+
+<p>flコマンドのソースを、以下に示します。「/bin」など、パスの通ったディレクトリに、「fl」という名前で保存して、実行権限を付けてください。</p>
+
+<pre>#!/bin/sh
+lst="`ls -1p | nl -s : -w1`"
+
+if [ -z $1 ]
+then
+    echo "$lst" | column
+    return 0
+fi
+
+if echo "$1" | grep '^[1-9][0-9]*$' > /dev/null
+then
+    echo "$lst" | grep -- "^$1:" | cut -d : -f 2- | tr -d /
+    return 0
+fi
+
+return 1</pre>
+
+<h2>fl関数</h2>
+<p>関数バージョンです。「.bash_profile」などに記述してください。</p>
+<pre>fl()
+{
+    local lst="`ls -1p | nl -s : -w1`"
+
+    if [ -z $1 ]
+    then
+        echo "$lst" | column
+        return 0
+    fi
+
+    if echo "$1" | grep '^[1-9][0-9]*$' > /dev/null
+    then
+        echo "$lst" | grep -- "^$1:" | cut -d : -f 2- | tr -d /
+        return 0
+    fi
+
+    return 1
+}</pre>
+
+<h2>解説</h2>
+<p>まず、flはカレントディレクトリのファイルを一覧にします。ファイルの一覧は「<code>ls -1p</code>」のようにして取得します。「<code>-p</code>」オプションによって、ディレクトリ名にスラッシュが付きます。</p>
+
+<pre>$ ls -1p
+ばら.jpg
+ひまわり.jpg
+チューリップ.jpg
+古い写真/</pre>
+
+<p>続いて、これに行番号をつけます。行番号を付けるには、「<code>nl -s : -w 1</code>」のようにします。「nl」のオプションで、行番号を左寄せにして、その後ろに「:」を付けるようにしています。</p>
+
+<pre>$ ls -1p | nl -s : -w 1
+1:ばら.jpg
+2:ひまわり.jpg
+3:チューリップ.jpg
+4:古い写真/</pre>
+
+<p>これで一覧表示ができました。仕上げとして、一覧を「column」にパイプすれば、1行に複数のファイル名を表示でき、端末上の行数の節約になります。</p>
+
+<p>次に、引数が1以上の整数なら、対応したファイル名を表示します。「grep」を使って、一覧から「指定された整数+ コロン」で始まる行を取り出します。それだけでは、「4:古い写真/」のように、数字やコロンやスラッシュが入ってしまうので、「cut」で最初のコロンより後の部分を取り出し、「tr」でスラッシュを消します。</p>
+
+<pre>$ echo '4:古い写真/' | cut -d : -f 2- | tr -d /
+古い写真</pre>
+
+<p>一覧表示、ファイル名表示という2つの動作ができました。あとは、引数をチェックして動作を振り分けます。引数が無ければ一覧表示を、引数が1以上の整数であれば対応したファイル名を表示します。引数が正しくない場合は失敗(<code>return 1</code>)します。</p>
+
+</div>
+
+<div class="contentinfo">
+<p><a class="a-back" href="index.html">ホームページ</a></p>
+<p><small>このページは<a
+    href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.ja"
+>CC0 1.0</a>の下で利用できます。
+</small></p>
+</div>
+

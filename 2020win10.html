@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LIFEBOOK AH700/5BにWindows 10をインストール - かなへびJS</title>
+<link href="style.css" rel="stylesheet">
+</head>
+
+<div class="banner bread" role="banner">
+<ul>
+<li><a class="logo" href="./index.html">かなへびJS</a></li
+><li>作業メモ</li>
+</ul>
+</div>
+
+<div class="main" role="banner">
+
+<h1>LIFEBOOK AH700/5BにWindows 10をインストール</h1>
+<p>2010年のノートパソコンにWindows 10をインストールした時の所感。</p>
+
+<h2>始めに</h2>
+<dl>
+<dt>インストールしたOS</dt>
+<dd>Windows 10 Home 32ビット</dd>
+<dt>インストールメディア</dt>
+<dd>Windows 10パッケージ版のUSBメモリ</dd>
+<dt>パソコン</dt>
+<dd>富士通 LIFEBOOK AH700/5B (備考:元々のOSはWindows 7 Home Plemium 32ビット)</dd>
+<dt>型番</dt>
+<dd>FMVA705BL (BLは色名)</dd>
+<dt>ストレージ</dt>
+<dd>SSD(備考:元々はHDD)</dd>
+</dl>
+
+<h2>インストールと初期設定</h2>
+<p>最終的には成功したが、トラブルが起きて半日ほどかかった。</p>
+
+<h3>Windowsロゴで止まる</h3>
+<p>USBメモリから起動すると、64ビットか3ビットかを選ぶ画面が出たので、32ビットを選択。インストールに必要なファイルがロードされる。</p>
+<p>ロードが終わると黒い背景にWindowsロゴが表示される。本来ならすぐにWindows セットアップが始まるはずなのに、1時間以上待っても何も始まらない。別のパソコンで試すと、一瞬でWindows セットアップが始まる。<p>
+<p>型番で検索すると、BIOSの設定で[レガシーUSBのサポート]をオフにすればWindows 10が動いたという情報が見つかる。試しにオフにしたら、インストール用USBメモリからの起動ができなくなる。USBではなくDVDからイントスールすれば良さそうだが、DVDをすぐに用意できない。</p>
+
+<h3>別のパソコンを経由してインストール</h3>
+<p>インストール用USBから起動できず、DVDも用意できないから、LIFEBOOK上でのインストールを諦める。</p>
+<p>そこで、インストール先のSSDを別のパソコンに取り付けてWindows 10をインストールし、インストール済みのSSDをLIFEBOOKに取り付ける方法を取る。</p>
+<p>別パソコンにインスール用USBメモリを差し込むと、起動デバイスの選択で、UEFIと付いたものと、付いていないものとが表示される。BIOSモードでインストールするため、後者を選択する。インストールは問題なく進む。</p>
+<p>インストール後に、SSDをLIFEBOOKに取り付ける。BIOSの設定で[レガシーUSB]をオフにして起動すると無事にログイン画面が表示された。</p>
+
+<h3>ドライバ不足の問題はWindows Updateで解決</h3>
+<p>インストール作業に別のパソコンを使ったからか、インストール直後、LIFEBOOK AH700/5Bに必要なドライバが入っておらず、不具合が起きた。</p>
+
+<ul>
+<li>モニタの解像度が合わない。</li>
+<li>モニタの明るさを変更できない。</li>
+<li>Wifiが使えない。</li>
+<li>スリープができない。</li>
+<li>マイクが使えない。</li>
+<li class="etc">...他にもあるはず。</li>
+</ul>
+
+<p>Windows Updateをすると、必要なドライバのほとんどが自動でインストールされ、ほとんどの問題が直った。マイクの問題は直らなかったが、FVMサポートのサイトから<a href="http://azby.fmworld.net/app/customer/driversearch/pc/drvdownload?mode=0&driverNumber=E1012445">Realtek High Definition Audio オーディオドライバ</a>を入手してインストールすると直った。</p>
+
+<h2>終わりに</h2>
+<p>このパソコンは、前にWindows 10への無償アップデートをして、問題なく動作していた。後でHDDが壊れて使えなくなり何年も放置していた。</p>
+<p>今回、Windows 10の入ったノートパソコンが欲しくなったが、HDDの壊れたノートパソコンと、余らせていたSSDがあったから、それら2つを再利用した。</p>
+<p>今回は32ビットのOSをインストールしたけれど、この機種は64ビットのOSに対応している。しかし、もう1度上記のインストール作業をするのは面倒だから、32ビットのまま使う。</p>
+
+</div>
+
+<div class="footnav" role="navigation">
+<a class="a-back" href="index.html">ホームページ</a>
+</div>
+
+<div class="contentinfo" role="contentinfo">
+<address>
+by <a href="profile.html">yunari</a>
+</address>
+2020/07/04公開
+</div>
+
+</html>

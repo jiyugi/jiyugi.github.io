@@ -1,0 +1,30 @@
+.kurihiroi-box {
+margin: 0.5em auto;
+max-width: 320px;
+width: 100%;
+}
+
+.kurihiroi-box canvas {
+display: block;
+max-width: 100%;
+}
+
+.kurihiroi-panel {
+margin-bottom: 0.25em;
+}
+
+.kurihiroi-panel button {
+background: #eeeeee;
+border: 1px solid #111111;
+border-radius: 0;
+color: #111111;
+font-family: inherit;
+font-size: smaller;
+line-height: inherit;
+margin-bottom: 0;
+padding: 0.5em 1em;
+}
+
+.kurihiroi-panel button:active {
+background: #dddddd;
+}

@@ -1,0 +1,223 @@
+html {
+  background: #fff;
+  color: #111;
+}
+
+body {
+  font: 100% / 1.5 sans-serif;
+  margin: 0 auto 4em;
+  max-width: 100%;
+  width: 37em;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: normal;
+  line-height: 1.25;
+  padding: 0;
+}
+
+h1 {
+  font-size: 200%;
+  margin: .5em 0 0;
+}
+
+h2 {
+  font-size: 150%;
+  margin: 1em 0 0;
+}
+
+h3 {
+  font-size: 125%;
+  font-weight: bold;
+  margin: 1.2em 0 0;
+}
+
+p {
+  padding: 0 0 0;
+  margin: 1em 0 0;
+}
+
+ul,
+ol {
+  margin: 1em 0 0 0;
+  padding: 0 0 0 1.5em;
+}
+
+ul {
+  list-style: square;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul .etc {
+  list-style: none;
+  margin-top: .5em;
+}
+
+dl {
+  margin: 1em 0 0;
+  padding: 0;
+}
+
+dd ul {
+  margin: 0;
+  padding: 0;
+}
+
+dt {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+dd {
+  margin: 0 0 0 1.5em;
+  padding: 0;
+}
+
+blockquote,
+.quotesource {
+  margin: 1em 2em 0;
+}
+
+img {
+  border: none;
+  height: auto;
+  max-width: 100%;
+  width: auto;
+}
+
+code,
+pre {
+  font-family: monospace;
+  font-size: 100%;
+  line-height: normal;
+}
+
+pre {
+  border-left: .25em solid #C173B0;
+  margin: 1em 0 0;
+  overflow: auto;
+  padding: 1em 0 1em 1.75em;
+}
+
+address {
+  font-style: normal;
+}
+
+:link {
+  color: #0645ad;
+}
+
+:visited {
+  color: #0B0080;
+}
+
+:link:active,
+:link:hover,
+:visited:active,
+:visited:hover {
+  text-decoration: none;
+}
+
+.welcome {
+  border-bottom: 1px solid #b8b8b8;
+  font-size: 100%;
+  line-height: 1.5;
+  margin-top: .25em;
+  padding-bottom: .25em;
+  text-align: center;
+}
+
+.clicklist li {
+  margin: .5em 0 0;
+}
+
+.menuitems {
+  margin: .5em 0 0 0;
+}
+
+.menuitems dt {
+  margin-top: .5em;
+}
+
+.menuitems dt a {
+  font-size: 125%;
+}
+
+.menuitems dd {
+  margin-left: 1em;
+  padding-left: 0;
+}
+
+.banner,
+.main,
+.footnav,
+.contentinfo {
+  margin: 0 1em;
+}
+
+.main {
+  border-bottom: 1px solid #b0b0b0;
+  border-top: 1px solid #b0b0b0;
+  padding: 0 0 1.25em;
+}
+
+.banner {
+  padding: .5em 0
+}
+
+.logo {
+  color: #C173B0;
+  font-size: 150%;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+:link.logo:hover,
+:visited.logo:hover {
+  text-decoration: underline;
+}
+
+.bread {
+  padding: .25em 0;
+}
+
+.bread ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bread ul li {
+  display: inline;
+}
+
+.bread .logo {
+  font-family: sans-serif;
+  font-size: 1em;
+}
+
+.bread ul li + li {
+    border-left: 1px solid #b8b8b8;
+    margin-left: .5em;
+    padding-left: .5em;
+}
+
+.footnav {
+  margin-top: 1em;
+}
+
+.a-back:before {
+  content: "\25C0  ";
+}
+
+.contentinfo {
+  margin-top: 1em;
+  padding-bottom: 1em;
+}

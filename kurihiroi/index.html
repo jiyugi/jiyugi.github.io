@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<link href="../style.css" rel="stylesheet">
+<link href="kurihiroi.css" rel="stylesheet">
+<link rel="icon" href="../images/kurihiroi-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くりひろいゲーム - かなへびJS</title>
+</head>
+
+<div class="banner bread">
+<ul>
+<li><a class="logo" href="../index.html">かなへびJS</a></li
+><li>くりひろいゲーム</li>
+</ul>
+</div>
+
+<div class="main">
+
+<div class="kurihiroi-box">
+<div class="kurihiroi-panel">
+<button id="js-kurihiroi-btn-reset">リセット</button>
+</div>
+<div>
+<canvas id="js-kurihiroi-canvas" width="320" height="320">
+<p>ここには『くりひろいゲーム』のゲーム画面が表示されます。
+canvas対応ブラウザでJavaScriptを有効にするとゲームで遊べます。</p>
+</canvas>
+</div>
+</div>
+
+<p>マウスボタンを押している間、カーソルに向かってカニが歩きます。落下する緑のイガグリを避けて、イガグリから飛び出すクリの実を拾ってください。イガグリにぶつかるとゲームオーバーです。</p>
+<p>クリを拾うと得点になります。連続で拾うと追加点がもらえます。得点が100、500、2500に達すると難易度が上がります。時間が経つにつれ、クリが低い位置から落ちてくるようになります。</p>
+<p><b>キー操作</b>: 画面クリック後に←,→で歩く、スペースキーでゲーム開始、Escキーでリセット。</p>
+
+</div>
+
+<div class="contentinfo">
+<p><a class="a-back" href="../index.html">ホームページ</a></p>
+</div>
+
+<script type="text/javascript" src="kurihiroi.js"></script>
+
+</html>

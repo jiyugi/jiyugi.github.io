@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="style.css" rel="stylesheet">
+<title>X11用アプリをBashから起動する - かなへびJS</title>
+
+<div class="banner bread">
+<ul>
+<li><a class="logo" href="./index.html">かなへびJS</a></li
+><li><a>Weblog</a></li>
+</ul>
+</div>
+
+<div class="main">
+
+<h1>X11用アプリをBashから起動する</h1>
+<p><small>2018年09月24日</small></p>
+
+<p>X Window System上で、XTermなどの端末エミュレーターを使えば、基本的な作業をコマンドで行い、画像編集やWeb閲覧をGUIで行うという使い分けができます。しかし、「<kbd>firefox ./index.html</kbd>」のようにして、GUIアプリケーションをコマンドで起動すると、それを終了するまでコマンド操作ができなくなります。</p>
+
+<h2>自作のBash関数</h2>
+
+<p>GUIアプリケーションを別のプロセスとして起動すれば、コマンド操作を続けることができます。それを実現するために、私は次のような関数を作りました。この関数は、bashとdashとkshで動作を確認しています。
+</p>
+
+<pre><code>run()
+{
+    $@ &gt; /dev/null 2&gt;&amp;1 &amp;
+}</code></pre>
+
+<p>この関数を「.bash_profile」などのファイルに記述し、「<kbd>run firefox ./index.html</kbd>」のように使うと、Windowsのコマンドプロンプトのように、端末を操作できるままでブラウザが起動します。
+</p>
+
+<p>仕組みを説明すると、「<code>$@</code>」は、run関数のすべての引数(プログラム名・オプション・ファイル名など)を表します。それに「<code>&</code>」を付けることで、別プロセスで起動します。しかし、それだけでは標準出力・標準エラー出力が次々と端末に表示されるため、出力を「/dev/null」へとリダイレクトします。</p>
+
+<h2>補完機能</h2>
+
+<p>もし、あなたのシステムにReadlineが入っており、completeコマンドが存在するなら、「.bash_profile」に「<code>complete -F _command run</code>」と記述しておけば、run関数の後のプログラム名を補完できるようになります。
+</p>
+
+<h2>全体のコード</h2>
+<p>コピー・ペースト用に、run関数+補完機能をまとめて掲載します。</p>
+<pre><code>run()
+{
+    $@ &gt; /dev/null 2&gt;&amp;1 &amp;
+}
+complete -F _command run</code></pre>
+
+</div>
+
+<div class="contentinfo">
+<p><a class="a-back" href="index.html">ホームページ</a></p>
+<p><small>このページは<a
+    href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.ja"
+>CC0 1.0</a>の下で利用できます。
+</small></p>
+</div>
+
